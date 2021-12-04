@@ -1,9 +1,8 @@
 (() => {
-    const pre = document.querySelector("pre");
-    const content = pre.textContent
+    const data = document.querySelector("pre").textContent.trim();
+    const content = data
         .split("\n")
-        .map((x) => parseInt(x, 10))
-        .filter((x) => !Number.isNaN(x));
+        .map((x) => parseInt(x, 10));
     console.log(content);
     const [count, last] = content.reduce(
         ([count, before], current) => (current > before ? [count + 1, current] : [count, current]),
