@@ -1,5 +1,6 @@
 if [ "$#" -lt 2 ]; then
     echo "Usage: ./prep_files.sh <day_number> <file_ext>"
+    exit 1
 fi
 
 day="$1"
