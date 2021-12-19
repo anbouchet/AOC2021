@@ -6,7 +6,19 @@ fi
 day="$1"
 ext="$2"
 
-mkdir "day$day"
-touch "day$day/puzzle1.$ext" "day$day/puzzle2.$ext"
+day_dir="day$day"
+
+mkdir "$day_dir"
+touch "$day_dir/puzzle1.$ext" "$day_dir/puzzle2.$ext"
+
+if [ "$ext" = 'py' ]; then
+    touch "$day_dir/__init__.py"
+fi
+
+if [ "$ext" != 'js' ]; then
+    touch "$day_dir/example.$ext"
+    touch "$day_dir/input.$ext"
+    touch "$day_dir/lib.$ext"
+fi
 
 echo "folder and base files for day $day have been created with the .$ext extension"
